@@ -44,7 +44,7 @@ return {
             vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
             vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
             vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-            vim.keymap.set("n", "<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+            vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
             -- ... add more keymaps if you'd like ...
         end
 
