@@ -121,6 +121,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
                 { name = "path" },
+                { name = "nvim_lsp_signature_help" },
                 -- You can add more sources if you like
             },
         })
