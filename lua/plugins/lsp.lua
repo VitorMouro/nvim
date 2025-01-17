@@ -25,6 +25,7 @@ return {
                 "pyright",       -- for Python
                 "ts_ls",      -- for JavaScript / TypeScript
                 "clangd",             -- for C/C++
+                "omnisharp"
                 -- ... add more LSPs ...
             },
             automatic_installation = true,
@@ -78,6 +79,11 @@ return {
         })
 
         lspconfig.clangd.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+        })
+
+        lspconfig.omnisharp.setup({
             on_attach = on_attach,
             capabilities = capabilities,
         })
