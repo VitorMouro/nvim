@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 vim.opt.showmode = true
+vim.opt.spell = true
+vim.opt.spelllang = "en"
 
 -- indentation
 vim.opt.autoindent = true
