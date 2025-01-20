@@ -10,8 +10,11 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp-signature-help",
+        "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets"
     },
 
     config = function()
@@ -89,6 +92,11 @@ return {
             capabilities = capabilities,
         })
 
+        lspconfig.html.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+        })
+
         -- ... add more servers if needed ...
 
         --------------------------------------------------------------------------
@@ -97,10 +105,7 @@ return {
         local cmp = require("cmp")
         local luasnip = require("luasnip")
 
-        -- Load snippet files or custom snippets (optional)
-        -- require("luasnip.loaders.from_vscode").lazy_load()  -- if you have friendly-snippets etc.
-        -- Or custom snippet paths:
-        -- require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
+        require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
             snippet = {
@@ -122,6 +127,8 @@ return {
                 { name = "buffer" },
                 { name = "path" },
                 { name = "nvim_lsp_signature_help" },
+                { name = "nvim-lua" },
+                { name = "luasnip" },
                 -- You can add more sources if you like
             },
         })
