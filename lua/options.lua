@@ -6,6 +6,7 @@ vim.opt.mouse = "a"
 vim.opt.showmode = true
 vim.opt.spell = true
 vim.opt.spelllang = "en"
+vim.opt.linebreak = true
 
 -- indentation
 vim.opt.autoindent = true
