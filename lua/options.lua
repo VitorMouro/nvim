@@ -5,7 +5,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 vim.opt.showmode = true
 vim.opt.spell = true
-vim.opt.spelllang = "en"
+vim.opt.spelllang = "en,pt"
 vim.opt.linebreak = true
 
 -- indentation
@@ -24,7 +24,9 @@ vim.opt.smartcase = true
 -- UI
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
-vim.opt.colorcolumn = "120"
+vim.opt.textwidth = 80
+vim.opt.colorcolumn = "+1"
+vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#cfd4e3")
 vim.opt.list = true
 vim.opt.listchars = {
     tab = "┊ ",
