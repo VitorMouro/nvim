@@ -20,10 +20,10 @@
   "nvim-cmp": { "branch": "main", "commit": "12509903a5723a876abd65953109f926f4634c30" },
   "nvim-lspconfig": { "branch": "master", "commit": "b4d65bce97795438ab6e1974b3672c17a4865e3c" },
   "nvim-surround": { "branch": "main", "commit": "ae298105122c87bbe0a36b1ad20b06d417c0433e" },
-  "nvim-treesitter": { "branch": "master", "commit": "6587a5886873cce8698a47477224c30578b33a24" },
-  "oil.nvim": { "branch": "master", "commit": "7a782c9a9cb7a16ec52199e55a1e892262c5dbbc" },
+  "nvim-treesitter": { "branch": "master", "commit": "51562d44fc6280f92bb9a3d87e7b3cb327377ca5" },
+  "oil.nvim": { "branch": "master", "commit": "83ac5185f79ab8d869bccea792dc516ad02ad06e" },
   "plenary.nvim": { "branch": "master", "commit": "3707cdb1e43f5cea73afb6037e6494e7ce847a66" },
   "telescope.nvim": { "branch": "master", "commit": "415af52339215926d705cccc08145f3782c4d132" },
   "tokyonight": { "branch": "main", "commit": "c3ab53c3f544e4a04f2a05d43451fd9bedff51b4" },
-  "vimtex": { "branch": "master", "commit": "3f0bdcfbe8167c081cd83153910c871b681c1d8f" }
+  "vimtex": { "branch": "master", "commit": "7693c43f7fe236b746c49b155dbee4eda7fe82a0" }
 }
