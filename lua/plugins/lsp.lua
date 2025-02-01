@@ -120,7 +120,7 @@ return {
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
-                ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
+                ["<C-k>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
             },
             sources = {
                 { name = "nvim_lsp" },
@@ -133,9 +133,28 @@ return {
             },
         })
 
+        -- vim.keymap.set({"i"}, "<C-K>", function() luasnip.expand() end, {silent = true})
+        vim.keymap.set("i", "<C-l>", function() luasnip.jump( 1) end, {silent = true})
+        vim.keymap.set("i", "<C-h>", function() luasnip.jump(-1) end, {silent = true})
+
+        -- vim.keymap.set({"i", "s"}, "<C-e>", function()
+        --     if luasnip.choice_active() then
+        --         luasnip.change_choice(1)
+        --     end
+        -- end, {silent = true})
+
         -- Set configuration for specific filetype(s) (e.g., use buffer completion in `/` search)
         cmp.setup.cmdline("/", {
-            mapping = cmp.mapping.preset.cmdline(),
+            -- mapping = cmp.mapping.preset.cmdline(),
+            mapping = {
+                ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                ["<C-Space>"] = cmp.mapping.complete(),
+                ["<C-e>"] = cmp.mapping.abort(),
+                ["<C-k>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
+            },
             sources = {
                 { name = "buffer" },
             },
@@ -143,7 +162,16 @@ return {
 
         -- Use cmdline & path source for ':' (command line) completion.
         cmp.setup.cmdline(":", {
-            mapping = cmp.mapping.preset.cmdline(),
+            -- mapping = cmp.mapping.preset.cmdline(),
+            mapping = {
+                ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                ["<C-Space>"] = cmp.mapping.complete(),
+                ["<C-e>"] = cmp.mapping.abort(),
+                ["<C-k>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
+            },
             sources = cmp.config.sources({
                 { name = "path" },
             }, {
