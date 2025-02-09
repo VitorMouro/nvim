@@ -5,6 +5,7 @@ vim.schedule(function()
     vim.opt.clipboard = "unnamedplus"
 end)
 
+vim.opt.shell = "/usr/bin/zsh"
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
