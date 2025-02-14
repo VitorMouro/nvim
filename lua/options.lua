@@ -31,6 +31,7 @@ vim.opt.breakindent = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.incsearch = true
 
 -- UI
 vim.opt.signcolumn = "yes"

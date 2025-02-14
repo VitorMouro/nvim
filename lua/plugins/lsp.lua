@@ -133,8 +133,13 @@ return {
                 ["<C-l>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
             },
             sources = {
-                { name = "nvim_lsp" },
-                { name = "buffer" },
+                {
+                    name = "nvim_lsp",
+                    entry_filter = function (entry, ctx)
+                        return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
+                    end
+                },
+                -- { name = "buffer" },
                 { name = "path" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "nvim-lua" },
@@ -154,6 +159,8 @@ return {
         -- end, {silent = true})
 
         -- Set configuration for specific filetype(s) (e.g., use buffer completion in `/` search)
+
+
         cmp.setup.cmdline("/", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
