@@ -102,10 +102,10 @@ return {
             capabilities = capabilities,
         })
 
-        lspconfig.bash_ls.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
+        -- lspconfig.bash_ls.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        -- })
 
         -- ... add more servers if needed ...
 
