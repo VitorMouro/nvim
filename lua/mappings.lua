@@ -1,6 +1,6 @@
 vim.keymap.set("n", "<esc>", vim.cmd.nohls, { desc = 'No search highlight' })
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { desc = 'Exit terminal mode' })
-vim.keymap.set("n", "<leader>o", ":Explore<CR>", { desc = 'Open file explorer' })
+-- vim.keymap.set("n", "<leader>o", ":Explore<CR>", { desc = 'Open file explorer' })
 
 
 -- Windows
