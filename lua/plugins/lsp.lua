@@ -12,6 +12,7 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp-signature-help",
+        "zbirenbaum/copilot-cmp",
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
         "rafamadriz/friendly-snippets"
@@ -102,6 +103,11 @@ return {
             capabilities = capabilities,
         })
 
+        lspconfig.gdscript.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+        })
+
         -- lspconfig.bash_ls.setup({
         --     on_attach = on_attach,
         --     capabilities = capabilities,
@@ -116,6 +122,8 @@ return {
         local luasnip = require("luasnip")
 
         require("luasnip.loaders.from_vscode").lazy_load()
+        require("copilot_cmp").setup()
+
 
         cmp.setup({
             snippet = {
@@ -144,6 +152,7 @@ return {
                 { name = "nvim_lsp_signature_help" },
                 { name = "nvim-lua" },
                 { name = "luasnip" },
+                { name = "copilot" },
                 -- You can add more sources if you like
             },
         })

@@ -1,22 +1,21 @@
 vim.g.mapleader = " "
 vim.g.localmapleader = " "
 
-vim.schedule(function()
-    vim.opt.clipboard = "unnamedplus"
-end)
+vim.opt.guicursor = ""
 
+vim.opt.clipboard = "unnamedplus"
 vim.opt.shell = "/usr/bin/zsh"
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.mouse = "a"
 vim.opt.showmode = true
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = "en,pt"
 vim.opt.linebreak = true
 vim.opt.wrap = false
-vim.opt.textwidth = 80
-vim.opt.colorcolumn = "+1"
+-- vim.opt.textwidth = 80
+vim.opt.colorcolumn = "80"
 vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#cfd4e3")
 
 -- indentation

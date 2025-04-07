@@ -1,6 +1,12 @@
 return {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-        vim.g.copilot_enabled = false
+        require("copilot").setup({
+            filetypes = {
+                markdown = true,
+            }
+        })
     end,
 }
