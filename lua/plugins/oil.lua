@@ -7,6 +7,7 @@ return {
             use_default_keymaps = false,
             keymaps = {
                 ["<CR>"] = "actions.select",
+                ["<C-l>"] = "actions.refresh",
             },
             view_options = {
                 show_hidden = true,
