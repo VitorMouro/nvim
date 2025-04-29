@@ -7,6 +7,8 @@ return {
             filetypes = {
                 markdown = true,
                 html = true,
+                typescript = true,
+                javascript = true
             }
         })
     end,

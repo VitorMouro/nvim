@@ -76,37 +76,46 @@ return {
             },
         })
 
+        -- Iterate installed lsp servers and set them up
+        local servers = require("mason-lspconfig").get_installed_servers()
+        for _, server in ipairs(servers) do
+            lspconfig[server].setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+            })
+        end
+
         -- Example: Pyright
-        lspconfig.pyright.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
-
-        -- Example: TSServer
-        lspconfig.ts_ls.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
-
-        lspconfig.clangd.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
-
-        lspconfig.omnisharp.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
-
-        lspconfig.html.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
-
-        lspconfig.gdscript.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
+        -- lspconfig.pyright.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        -- })
+        --
+        -- -- Example: TSServer
+        -- lspconfig.ts_ls.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        -- })
+        --
+        -- lspconfig.clangd.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        -- })
+        --
+        -- lspconfig.omnisharp.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        -- })
+        --
+        -- lspconfig.html.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        -- })
+        --
+        -- lspconfig.gdscript.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        -- })
 
         -- lspconfig.bash_ls.setup({
         --     on_attach = on_attach,
