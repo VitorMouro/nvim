@@ -8,7 +8,8 @@ return {
                 markdown = true,
                 html = true,
                 typescript = true,
-                javascript = true
+                javascript = true,
+                yaml = true,
             }
         })
     end,

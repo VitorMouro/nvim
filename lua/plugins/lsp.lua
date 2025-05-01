@@ -31,7 +31,6 @@ return {
                 "ts_ls",      -- for JavaScript / TypeScript
                 "clangd",             -- for C/C++
                 "omnisharp"
-                -- ... add more LSPs ...
             },
             automatic_installation = true,
         })
@@ -51,7 +50,6 @@ return {
             vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
             vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
             vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-            -- ... add more keymaps if you'd like ...
         end
 
         -- Manually set up the servers you want from Mason
@@ -68,7 +66,6 @@ return {
                     workspace = {
                         library = {
                             vim.api.nvim_get_runtime_file("", true),
-                            "${3rd}/love2d/library"
                         }
                     },
                     telemetry = { enable = false },
@@ -84,45 +81,6 @@ return {
                 capabilities = capabilities,
             })
         end
-
-        -- Example: Pyright
-        -- lspconfig.pyright.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
-        --
-        -- -- Example: TSServer
-        -- lspconfig.ts_ls.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
-        --
-        -- lspconfig.clangd.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
-        --
-        -- lspconfig.omnisharp.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
-        --
-        -- lspconfig.html.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
-        --
-        -- lspconfig.gdscript.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
-
-        -- lspconfig.bash_ls.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
-
-        -- ... add more servers if needed ...
 
         --------------------------------------------------------------------------
         -- nvim-cmp Setup
@@ -162,7 +120,6 @@ return {
                 { name = "nvim-lua" },
                 { name = "luasnip" },
                 { name = "copilot" },
-                -- You can add more sources if you like
             },
         })
 
@@ -170,16 +127,9 @@ return {
         vim.keymap.set("i", "<C-j>", function() luasnip.jump( 1) end, {silent = true})
         vim.keymap.set("i", "<C-k>", function() luasnip.jump(-1) end, {silent = true})
 
-        -- vim.keymap.set({"i", "s"}, "<C-e>", function()
-        --     if luasnip.choice_active() then
-        --         luasnip.change_choice(1)
-        --     end
-        -- end, {silent = true})
-
-        -- Set configuration for specific filetype(s) (e.g., use buffer completion in `/` search)
-
 
         cmp.setup.cmdline("/", {
+            mapping = cmp.mapping.preset.cmdline(),
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
                 { name = "buffer" },
