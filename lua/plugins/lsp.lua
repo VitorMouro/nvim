@@ -38,7 +38,7 @@ return {
             -- Example keybindings
             local opts = { noremap = true, silent = true, buffer = bufnr }
             vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-            vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+            vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
             vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
             vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
             vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
@@ -121,7 +121,6 @@ return {
 
 
         cmp.setup.cmdline("/", {
-            mapping = cmp.mapping.preset.cmdline(),
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
                 { name = "buffer" },

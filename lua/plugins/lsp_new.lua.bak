@@ -1,4 +1,3 @@
--- Neovim LSP Configuration using modern vim.lsp and vim.diagnostic APIs
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -73,9 +72,9 @@ return {
             vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)                                    -- Show references
             vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, opts) -- Format code
             vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)                          -- Open floating diagnostic window
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)                                     -- Go to previous diagnostic
-          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)                                     -- Go to next diagnostic
-          vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)                          -- Show diagnostics in location list
+            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)                                  -- Go to previous diagnostic
+            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)                                  -- Go to next diagnostic
+            vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)                          -- Show diagnostics in location list
 
             -- Highlight symbol under cursor (optional, requires Neovim 0.8+)
             if client.supports_method("textDocument/documentHighlight") then
@@ -209,6 +208,5 @@ return {
         --     return vim_item
         --   end,
         -- },
-
     end,
 }
