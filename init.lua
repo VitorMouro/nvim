@@ -1,6 +1,5 @@
 require("options")
 require("mappings")
-require("utils")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
