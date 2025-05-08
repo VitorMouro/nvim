@@ -26,7 +26,7 @@ require("lazy").setup({
         { import = "plugins" },
     },
     -- colorscheme that will be used when installing plugins.
-    install = { colorscheme = { "default" } },
+    install = { colorscheme = { "tokyonight-day" } },
     -- automatically check for plugin updates
     checker = {
         enabled = true,

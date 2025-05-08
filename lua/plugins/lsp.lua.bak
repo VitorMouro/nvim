@@ -24,15 +24,7 @@ return {
         --------------------------------------------------------------------------
         require("mason").setup()
         require("mason-lspconfig").setup({
-            -- List the servers you want to have automatically installed by Mason
-            ensure_installed = {
-                "lua_ls",        -- for Lua
-                "pyright",       -- for Python
-                "ts_ls",      -- for JavaScript / TypeScript
-                "clangd",             -- for C/C++
-                "omnisharp"
-            },
-            automatic_installation = true,
+            automatic_enable = false,
         })
 
         --------------------------------------------------------------------------
@@ -56,22 +48,22 @@ return {
         local lspconfig = require("lspconfig")
 
         -- Example: Lua language server
-        lspconfig.lua_ls.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-            settings = {
-                Lua = {
-                    runtime = { version = "LuaJIT" },
-                    diagnostics = { globals = { "vim" } },
-                    workspace = {
-                        library = {
-                            vim.api.nvim_get_runtime_file("", true),
-                        }
-                    },
-                    telemetry = { enable = false },
-                },
-            },
-        })
+        -- lspconfig.lua_ls.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        --     settings = {
+        --         Lua = {
+        --             runtime = { version = "LuaJIT" },
+        --             diagnostics = { globals = { "vim" } },
+        --             workspace = {
+        --                 library = {
+        --                     vim.api.nvim_get_runtime_file("", true),
+        --                 }
+        --             },
+        --             telemetry = { enable = false },
+        --         },
+        --     },
+        -- })
 
         -- Iterate installed lsp servers and set them up
         local servers = require("mason-lspconfig").get_installed_servers()
