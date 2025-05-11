@@ -3,8 +3,8 @@ return {
     "neovim/nvim-lspconfig",
 
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
@@ -19,53 +19,28 @@ return {
     },
 
     config = function()
-        --------------------------------------------------------------------------
-        -- Mason Setup
-        --------------------------------------------------------------------------
         require("mason").setup()
         require("mason-lspconfig").setup({
             automatic_enable = false,
         })
 
-        --------------------------------------------------------------------------
-        -- LSP Settings (including capabilities)
-        --------------------------------------------------------------------------
-        -- nvim-cmp supports additional LSP capabilities
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-        -- Common `on_attach` callback for all LSP servers
         local on_attach = function(client, bufnr)
-            -- Example keybindings
             local opts = { noremap = true, silent = true, buffer = bufnr }
-            vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-            vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-            vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-            vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
             vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+            vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
+            vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
+            vim.keymap.set("v", "<leader>f", vim.lsp.buf.format, opts)
+            vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
         end
 
-        -- Manually set up the servers you want from Mason
         local lspconfig = require("lspconfig")
 
-        -- Example: Lua language server
-        -- lspconfig.lua_ls.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        --     settings = {
-        --         Lua = {
-        --             runtime = { version = "LuaJIT" },
-        --             diagnostics = { globals = { "vim" } },
-        --             workspace = {
-        --                 library = {
-        --                     vim.api.nvim_get_runtime_file("", true),
-        --                 }
-        --             },
-        --             telemetry = { enable = false },
-        --         },
-        --     },
-        -- })
-
-        -- Iterate installed lsp servers and set them up
         local servers = require("mason-lspconfig").get_installed_servers()
         for _, server in ipairs(servers) do
             lspconfig[server].setup({
@@ -74,15 +49,24 @@ return {
             })
         end
 
-        --------------------------------------------------------------------------
-        -- nvim-cmp Setup
-        --------------------------------------------------------------------------
+        -- Diagnostics
+        vim.diagnostic.config({
+            virtual_text = {
+                prefix = "",
+                spacing = 1,
+            },
+            signs = true,
+            underline = true,
+            update_in_insert = false,
+            severity_sort = true,
+        })
+
+
         local cmp = require("cmp")
         local luasnip = require("luasnip")
 
         require("luasnip.loaders.from_vscode").lazy_load()
         require("copilot_cmp").setup()
-
 
         cmp.setup({
             snippet = {
@@ -106,7 +90,6 @@ return {
                         return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
                     end
                 },
-                -- { name = "buffer" },
                 { name = "path" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "nvim-lua" },
@@ -115,10 +98,8 @@ return {
             },
         })
 
-        -- vim.keymap.set({"i"}, "<C-K>", function() luasnip.expand() end, {silent = true})
         vim.keymap.set("i", "<C-j>", function() luasnip.jump( 1) end, {silent = true})
         vim.keymap.set("i", "<C-k>", function() luasnip.jump(-1) end, {silent = true})
-
 
         cmp.setup.cmdline("/", {
             mapping = cmp.mapping.preset.cmdline(),
@@ -127,14 +108,13 @@ return {
             },
         })
 
-        -- Use cmdline & path source for ':' (command line) completion.
         cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
                 { name = "path" },
             }, {
-                    { name = "cmdline" },
-                }),
+                { name = "cmdline" },
+            }),
         })
     end,
 }
