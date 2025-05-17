@@ -43,10 +43,37 @@ return {
 
         local servers = require("mason-lspconfig").get_installed_servers()
         for _, server in ipairs(servers) do
-            lspconfig[server].setup({
-                on_attach = on_attach,
-                capabilities = capabilities,
-            })
+            if server == "lua_ls" then
+                lspconfig[server].setup({
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                    float = {
+                        border = "rounded",
+                    },
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "vim" },
+                            },
+                            workspace = {
+                                library = vim.api.nvim_get_runtime_file("", true),
+                                checkThirdParty = false,
+                            },
+                            telemetry = {
+                                enable = false,
+                            },
+                        },
+                    },
+                })
+            else
+                lspconfig[server].setup({
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                    float = {
+                        border = "rounded",
+                    },
+                })
+            end
         end
 
         -- Diagnostics
@@ -59,6 +86,9 @@ return {
             underline = true,
             update_in_insert = false,
             severity_sort = true,
+            float = {
+                border = "rounded",
+            },
         })
 
 
@@ -86,7 +116,7 @@ return {
             sources = {
                 {
                     name = "nvim_lsp",
-                    entry_filter = function (entry, ctx)
+                    entry_filter = function(entry, ctx)
                         return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
                     end
                 },
@@ -98,8 +128,8 @@ return {
             },
         })
 
-        vim.keymap.set("i", "<C-j>", function() luasnip.jump( 1) end, {silent = true})
-        vim.keymap.set("i", "<C-k>", function() luasnip.jump(-1) end, {silent = true})
+        vim.keymap.set("i", "<C-j>", function() luasnip.jump(1) end, { silent = true })
+        vim.keymap.set("i", "<C-k>", function() luasnip.jump(-1) end, { silent = true })
 
         cmp.setup.cmdline("/", {
             mapping = cmp.mapping.preset.cmdline(),

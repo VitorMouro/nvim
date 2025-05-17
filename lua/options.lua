@@ -14,9 +14,7 @@ vim.opt.spell = false
 vim.opt.spelllang = "en,pt"
 vim.opt.linebreak = true
 vim.opt.wrap = false
--- vim.opt.textwidth = 80
 vim.opt.colorcolumn = "80"
-vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#cfd4e3")
 
 -- indentation
 vim.opt.autoindent = true
