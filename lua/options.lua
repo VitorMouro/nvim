@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.localmapleader = " "
 
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shell = "/usr/bin/zsh"
@@ -15,6 +15,12 @@ vim.opt.spelllang = "en,pt"
 vim.opt.linebreak = true
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
+vim.opt.foldcolumn = "0"
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.virtualedit = "all"
+vim.opt.signcolumn = "yes"
 
 -- indentation
 vim.opt.autoindent = true
@@ -31,7 +37,6 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true
 
 -- UI
-vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.list = true
 vim.opt.listchars = {
@@ -45,6 +50,6 @@ vim.opt.inccommand = "split"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 5
-vim.opt.sidescrolloff = 5
+vim.opt.scrolloff = 0
+vim.opt.sidescrolloff = 0
 vim.opt.termguicolors = true

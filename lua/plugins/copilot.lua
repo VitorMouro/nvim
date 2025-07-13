@@ -4,12 +4,11 @@ return {
     event = "InsertEnter",
     config = function()
         require("copilot").setup({
-            filetypes = {
-                markdown = true,
-                html = true,
-                typescript = true,
-                javascript = true,
-                yaml = true,
+            suggestion = {
+                enabled = false,
+            },
+            panel = {
+                enabled = false,
             }
         })
     end,
