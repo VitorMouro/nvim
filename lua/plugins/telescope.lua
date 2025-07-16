@@ -10,9 +10,10 @@ return {
 			-- Fullscreen
 			defaults = {
 				layout_config = {
-					horizontal = { width = 0.99, height = 0.99 },
-					vertical = { width = 0.99, height = 0.99 },
+					horizontal = { width = 0.95, height = 0.95 },
+					vertical = { width = 0.95, height = 0.95 },
 				},
+                border = false,
 			},
 		})
 

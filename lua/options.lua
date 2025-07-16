@@ -22,6 +22,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.virtualedit = "all"
 vim.opt.signcolumn = "yes"
+vim.opt.winborder = "single"
 
 -- indentation
 vim.opt.autoindent = true

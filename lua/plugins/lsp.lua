@@ -24,13 +24,6 @@ return {
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
 			vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
-
-			local original_handler = vim.lsp.handlers["textDocument/hover"]
-			vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
-				config = config or {}
-				config.border = "rounded"
-				return original_handler(err, result, ctx, config)
-			end
 		end
 
 		local lspconfig = require("lspconfig")
@@ -109,11 +102,20 @@ return {
 			update_in_insert = false,
 			severity_sort = true,
 			float = {
-				border = "rounded",
+				border = "single",
 				source = "if_many",
 				header = "",
 				prefix = "",
 			},
+            -- Use same icons as lualine
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = "󰅚",
+                    [vim.diagnostic.severity.WARN] = "󰀪",
+                    [vim.diagnostic.severity.INFO] = "󰋼",
+                    [vim.diagnostic.severity.HINT] = "󰌵",
+                }
+            },
 		})
 
 	end,
