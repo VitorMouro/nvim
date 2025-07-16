@@ -15,10 +15,11 @@ vim.opt.spelllang = "en,pt"
 vim.opt.linebreak = true
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
-vim.opt.foldcolumn = "0"
-vim.opt.foldmethod = "indent"
+vim.opt.foldcolumn = "1"
+-- vim.opt.foldmethod = "indent"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 vim.opt.virtualedit = "all"
 vim.opt.signcolumn = "yes"
 
