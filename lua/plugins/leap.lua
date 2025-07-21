@@ -14,15 +14,15 @@ return {
             )
         end
 
-        vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
+        vim.keymap.set({ 'n', 'x', 'o' }, '<leader>s', function()
             require('leap').leap({})
         end, { desc = "Leap Forward to" })
 
-        vim.keymap.set({ 'n', 'x', 'o' }, 'S', function()
+        vim.keymap.set({ 'n', 'x', 'o' }, '<leader>S', function()
             require('leap').leap({ backward = true })
         end, { desc = "Leap Backward to" })
 
-        vim.keymap.set({ 'n', 'x', 'o' }, 'gs', function()
+        vim.keymap.set({ 'n', 'x', 'o' }, '<leader>gs', function()
             require('leap').leap({ target_windows = vim.api.nvim_list_wins() })
         end, { desc = "Leap Across Windows" })
     end,
