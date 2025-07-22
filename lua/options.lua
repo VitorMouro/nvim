@@ -22,7 +22,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.virtualedit = "all"
 vim.opt.signcolumn = "yes"
-vim.opt.winborder = "single"
+-- vim.opt.winborder = "rounded"
 
 -- indentation
 vim.opt.autoindent = true
@@ -44,9 +44,9 @@ vim.opt.incsearch = true
 vim.opt.cursorline = true
 vim.opt.list = true
 vim.opt.listchars = {
-    tab = "→ ",
+    tab = "┊ ",
     lead = "·",
-    trail = "·",
+    trail = "•",
     extends = "»",
     precedes = "«",
     nbsp = "×",

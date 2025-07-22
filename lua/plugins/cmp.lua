@@ -49,8 +49,8 @@ return {
 				{ name = "copilot" },
 			},
 			window = {
-				completion = { border = "single" },
-				documentation = { border = "single" },
+				completion = { border = "rounded" },
+				documentation = { border = "rounded" },
 			},
 		})
 
