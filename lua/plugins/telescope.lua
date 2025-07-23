@@ -3,6 +3,11 @@ return {
 
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
+        {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            build = "make",
+        }
     },
 
     config = function()
@@ -14,7 +19,25 @@ return {
                     vertical = { width = 0.95, height = 0.95 },
                 },
             },
+            extensions = {
+                ["ui-select"] = {
+                    require("telescope.themes").get_dropdown({
+                        previewer = false,
+                        width = 0.5,
+                        height = 0.5,
+                    }),
+                },
+                fzf = {
+                    fuzzy = true,
+                    override_generic_sorter = true,
+                    override_file_sorter = true,
+                    case_mode = "smart_case",
+                },
+            },
         })
+
+        require("telescope").load_extension("ui-select")
+        require("telescope").load_extension("fzf")
 
         local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files (Telescope)" })
