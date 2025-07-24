@@ -38,9 +38,9 @@ end, {
 })
 
 -- Run Copilot disable command on startup
-vim.api.nvim_create_autocmd("VimEnter", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("Copilot disable")
-    end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     pattern = "*",
+--     callback = function()
+--         vim.cmd("silent! Copilot disable")
+--     end,
+-- })

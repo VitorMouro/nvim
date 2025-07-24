@@ -12,6 +12,6 @@ return {
             },
         })
 
-        -- vim.cmd("Copilot disable")
+        require("copilot.command").disable()
     end,
 }
