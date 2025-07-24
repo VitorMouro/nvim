@@ -9,7 +9,9 @@ return {
             },
             panel = {
                 enabled = false,
-            }
+            },
         })
+
+        -- vim.cmd("Copilot disable")
     end,
 }

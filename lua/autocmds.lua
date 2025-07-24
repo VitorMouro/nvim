@@ -4,6 +4,7 @@
 --         vim.bo.filetype = "html"
 --     end,
 -- })
+--
 -- Create Path command, that yanks the relative path of current file the working dir
 vim.api.nvim_create_user_command("Path", function()
     local file_path = vim.fn.expand("%:p")
@@ -30,4 +31,16 @@ vim.api.nvim_create_user_command("Line", function(args)
         full_path_with_range = string.format("%s:%s", relative_path, range_info)
     end
     vim.fn.setreg("+", full_path_with_range)
-end, { nargs = 0, range = true, desc = "Copy the relative path of the current file with line and column to the unnamed register" })
+end, {
+    nargs = 0,
+    range = true,
+    desc = "Copy the relative path of the current file with line and column to the unnamed register",
+})
+
+-- Run Copilot disable command on startup
+vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = "*",
+    callback = function()
+        vim.cmd("Copilot disable")
+    end,
+})
