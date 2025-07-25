@@ -47,5 +47,8 @@ return {
         vim.keymap.set("n", "<leader>fr", builtin.registers, { desc = "Registers (Telescope)" })
         vim.keymap.set("n", "<leader>fs", builtin.git_status, { desc = "Git status (Telescope)" })
         vim.keymap.set("n", "<leader>fl", builtin.resume, { desc = "Resume (Telescope)" })
+        vim.keymap.set("n", "<leader>f<space>", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find in current buffer (Telescope)" })
+        vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps (Telescope)" })
+        vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "Commands (Telescope)" })
     end,
 }

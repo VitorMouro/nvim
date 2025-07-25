@@ -12,6 +12,6 @@ return {
             },
         })
 
-        require("copilot.command").disable()
+        -- require("copilot.command").disable()
     end,
 }

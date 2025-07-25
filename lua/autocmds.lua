@@ -1,10 +1,10 @@
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "htmlangular",
---     callback = function()
---         vim.bo.filetype = "html"
---     end,
--- })
---
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "htmlangular",
+    callback = function()
+        vim.bo.filetype = "html"
+    end,
+})
+
 -- Create Path command, that yanks the relative path of current file the working dir
 vim.api.nvim_create_user_command("Path", function()
     local file_path = vim.fn.expand("%:p")

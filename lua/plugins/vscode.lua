@@ -6,5 +6,6 @@ return {
 		require("vscode").setup({})
 
 		vim.cmd("colorscheme vscode")
+        vim.cmd("highlight ColorColumn ctermbg=231 guibg=#ffffff")
 	end,
 }

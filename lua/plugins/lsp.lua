@@ -72,10 +72,10 @@ return {
             single_file_support = true,
         })
 
-        lspconfig.angularls.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
+        -- lspconfig.angularls.setup({
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        -- })
 
         -- Diagnostics
         -- vim.diagnostic.config({
