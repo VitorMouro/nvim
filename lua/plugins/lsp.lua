@@ -72,17 +72,17 @@ return {
             single_file_support = true,
         })
 
-        -- lspconfig.angularls.setup({
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
+        lspconfig.angularls.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+        })
 
         -- Diagnostics
         -- vim.diagnostic.config({
         --           float = {
         --               border = "rounded"
         --           },
-        -- 	virtual_text = {
+        --  virtual_text = {
         -- 		prefix = "",
         -- 		spacing = 1,
         -- 	},

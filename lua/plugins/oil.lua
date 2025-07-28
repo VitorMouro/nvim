@@ -14,11 +14,6 @@ return {
             view_options = {
                 show_hidden = true,
             },
-            -- columns = {
-            --     "icon",
-            --     "size",
-            --     "mtime",
-            -- },
         })
         vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>", { desc = "Oil" })
     end,
