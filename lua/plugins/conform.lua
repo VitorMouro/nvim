@@ -22,7 +22,7 @@ return {
             -- },
         })
 
-        vim.keymap.set({ "n", "v" }, "<leader>f", function()
+        vim.keymap.set({ "n", "v" }, "<leader>=", function()
             require("conform").format({ lsp_fallback = true })
         end, { desc = "Format with Conform" })
     end,
