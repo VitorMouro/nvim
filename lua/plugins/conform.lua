@@ -20,6 +20,7 @@ return {
             --     lsp_format = "fallback",
             --     timeout_ms = 500,
             -- },
+            timeout_ms = 5000,
         })
 
         vim.keymap.set({ "n", "v" }, "<leader>=", function()

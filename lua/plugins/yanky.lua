@@ -4,6 +4,6 @@ return {
         require("yanky").setup({
         })
 
-        vim.keymap.set("n", "<leader>fh", "<cmd>YankyRingHistory<CR>", { desc = "YankyHistory" })
+        vim.keymap.set("n", "<leader>fy", "<cmd>YankyRingHistory<CR>", { desc = "YankyHistory" })
     end,
 }
