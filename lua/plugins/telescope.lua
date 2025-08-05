@@ -34,6 +34,15 @@ return {
                     case_mode = "smart_case",
                 },
             },
+            pickers = {
+                buffers = {
+                    mappings = {
+                        n = {
+                            ["x"] = require("telescope.actions").delete_buffer,
+                        },
+                    },
+                }
+            },
         })
 
         require("telescope").load_extension("ui-select")
