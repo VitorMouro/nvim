@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.localmapleader = " "
 
 -- vim.opt.guicursor = ""
-
+vim.opt.background = "light"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shell = "/usr/bin/zsh"
 vim.opt.undofile = true

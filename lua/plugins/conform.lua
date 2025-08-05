@@ -20,11 +20,16 @@ return {
             --     lsp_format = "fallback",
             --     timeout_ms = 500,
             -- },
-            timeout_ms = 5000,
+            default_format_opts = {
+                timeout_ms = 3000,
+                async = false, -- not recommended to change
+                quiet = false, -- not recommended to change
+                lsp_format = "fallback", -- not recommended to change
+            },
         })
 
         vim.keymap.set({ "n", "v" }, "<leader>=", function()
-            require("conform").format({ lsp_fallback = true })
+            require("conform").format()
         end, { desc = "Format with Conform" })
     end,
 }
