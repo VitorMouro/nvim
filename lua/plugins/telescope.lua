@@ -43,13 +43,14 @@ return {
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files (Telescope)" })
         vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep (Telescope)" })
         vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers (Telescope)" })
-        -- vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags (Telescope)" }) fh is now find history with yanky
-        vim.keymap.set("n", "<leader>fr", builtin.registers, { desc = "Registers (Telescope)" })
+        vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags (Telescope)" })
+        vim.keymap.set("n", "<leader>f\"", builtin.registers, { desc = "Registers (Telescope)" })
         vim.keymap.set("n", "<leader>fs", builtin.git_status, { desc = "Git status (Telescope)" })
         vim.keymap.set("n", "<leader>fl", builtin.resume, { desc = "Resume (Telescope)" })
         vim.keymap.set("n", "<leader>f<space>", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find in current buffer (Telescope)" })
         vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps (Telescope)" })
         vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "Commands (Telescope)" })
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics (Telescope)" })
+        vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "LSP references (Telescope)" })
     end,
 }

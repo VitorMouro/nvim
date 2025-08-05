@@ -26,10 +26,10 @@ require("lazy").setup({
         { import = "plugins" },
     },
     -- colorscheme that will be used when installing plugins.
-    install = { colorscheme = { "tokyonight-night" } },
+    install = { colorscheme = { "vscode" } },
     -- automatically check for plugin updates
     checker = {
         enabled = true,
-        notify = false
+        notify = false,
     },
 })
