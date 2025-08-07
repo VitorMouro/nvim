@@ -8,8 +8,9 @@ return {
         vim.cmd("colorscheme vscode")
 
         vim.cmd.highlight("LineNr guifg=#000000")
-        vim.cmd.highlight("FoldColumn guifg=#afafaf")
+        -- vim.cmd.highlight("FoldColumn guifg=#afafaf")
         vim.cmd.highlight("NonText guifg=#afafaf")
-        vim.cmd.highlight("Whitespace guifg=#afafaf")
+        -- vim.cmd.highlight("Whitespace guifg=#afafaf")
+        -- vim.cmd.highlight("IblWhitespace  guifg=#afafaf")
     end,
 }

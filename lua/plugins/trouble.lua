@@ -4,7 +4,7 @@ return {
     cmd = "Trouble",
     keys = {
         {
-            "<leader>T",
+            "<leader>t",
             "<cmd>Trouble<cr>",
             desc = "Trouble",
         },
