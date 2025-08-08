@@ -21,9 +21,6 @@ return {
         require("copilot_cmp").setup()
 
         cmp.setup({
-            completion = {
-                autocomplete = false
-            },
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
@@ -34,7 +31,7 @@ return {
                 ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-Space>"] = cmp.mapping.complete(),
+                -- ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<C-l>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
             },
